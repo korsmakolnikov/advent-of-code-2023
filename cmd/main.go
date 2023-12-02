@@ -1,6 +1,11 @@
 package main
 
-import "os"
+import (
+	"bufio"
+	"fmt"
+	"korsmakolnikov/advent_of_code_2023_day_one/internal/domain"
+	"os"
+)
 
 /*
 --- Day 1: Trebuchet?! ---
@@ -49,5 +54,21 @@ calibration values?
 */
 
 func main() {
+	var res int
+	scanner := bufio.NewScanner(os.Stdin)
+
+	for scanner.Scan() {
+		line := scanner.Text()
+		if "" != line {
+			res = res + domain.FilterExtremitiesDigits(line)
+		}
+	}
+
+	if err := scanner.Err(); err != nil {
+		fmt.Fprintln(os.Stderr, "reading standard input:", err)
+		os.Exit(1)
+	}
+
+	fmt.Printf("Result: %d\n", res)
 	os.Exit(0)
 }
