@@ -34,3 +34,13 @@ func TestFilterExtremitiesDigitsWithMultipleDigits(t *testing.T) {
 		t.Errorf("filterExtremitiesDigits fails with %s, %d was expected but it returns %d", input, expected, result)
 	}
 }
+
+func TestFilterExtremitiesDigitsWithASingleDigit(t *testing.T) {
+	input := "treb7uchet "
+	result := domain.FilterExtremitiesDigits(input)
+	expected := 77
+
+	if expected != result {
+		t.Errorf("filterExtremitiesDigits fails with %s, %d was expected but it returns %d", input, expected, result)
+	}
+}
