@@ -14,3 +14,13 @@ func TestFilterExtremitiesDigits(t *testing.T) {
 		t.Errorf("filterExtremitiesDigits fails with %s, %d was expected but it returns %d", input, expected, result)
 	}
 }
+
+func TestFilterExtremitiesDigitsRoundTwo(t *testing.T) {
+	input := "pqr3stu8vwx "
+	result := domain.FilterExtremitiesDigits(input)
+	expected := 38
+
+	if expected != result {
+		t.Errorf("filterExtremitiesDigits fails with %s, %d was expected but it returns %d", input, expected, result)
+	}
+}
